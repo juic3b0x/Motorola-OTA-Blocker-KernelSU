@@ -3,17 +3,17 @@ name: Build & Release KernelSU Module
 on:
   push:
     paths:
-      - 'module/module.prop'    # Only trigger when module.prop changes
+      - 'module/module.prop'    # Trigger only when module.prop changes
 
 jobs:
   build-release:
     runs-on: ubuntu-latest
     steps:
-      # 1. Checkout code
+      # 1. Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2. Set up environment variables
+      # 2. Set module info
       - name: Set module info
         id: module_info
         run: |
@@ -23,8 +23,17 @@ jobs:
           echo "SHORT_SHA=$SHORT_SHA" >> $GITHUB_ENV
           echo "RELEASE_NAME=v${VERSION}-${SHORT_SHA}" >> $GITHUB_ENV
           echo "ZIP_NAME=Motorola-OTA-Blocker-KernelSU-${VERSION}-${SHORT_SHA}.zip" >> $GITHUB_ENV
+          # Read CHANGELOG.md for the release description
+          if [ -f CHANGELOG.md ]; then
+            RELEASE_BODY=$(cat CHANGELOG.md)
+          else
+            RELEASE_BODY="Release of KernelSU module version ${VERSION} (commit ${SHORT_SHA})."
+          fi
+          echo "RELEASE_BODY<<EOF" >> $GITHUB_ENV
+          echo "$RELEASE_BODY" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
-      # 3. Create the module zip
+      # 3. Build the module zip
       - name: Build module zip
         run: |
           cd module
@@ -37,8 +46,7 @@ jobs:
         with:
           tag_name: ${{ env.RELEASE_NAME }}
           name: ${{ env.RELEASE_NAME }}
-          body: |
-            Release of KernelSU module version ${{ env.VERSION }} (commit ${{ env.SHORT_SHA }}).
+          body: ${{ env.RELEASE_BODY }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
