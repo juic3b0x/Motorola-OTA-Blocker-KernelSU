@@ -53,7 +53,7 @@ This module **bind-mounts empty directories** over those paths at boot, causing 
 
 ## 🚀 Installation
 
-1. Download the module ZIP from the [Releases page](#)  
+1. Download the module ZIP from the [Releases page](https://github.com/juic3b0x/Motorola-OTA-Blocker-KernelSU/releases)  
 2. Open KernelSU → Modules → Install  
 3. Select `Motorola-OTA-Blocker-KernelSU.zip`  
 4. Reboot  
