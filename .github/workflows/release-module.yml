@@ -2,7 +2,6 @@ name: Build & Release KernelSU Module
 
 permissions:
   contents: write
-  metadata: write
 
 on:
   push:
