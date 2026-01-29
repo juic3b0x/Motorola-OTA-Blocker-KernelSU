@@ -19,12 +19,12 @@ The system paths remain present, preventing recovery repairs or integrity checks
 
 ## 🧩 Targeted Paths
 
-/system/etc/nondisable
-/system/priv-app/3c_ota
-/system/product/etc/nondisable
-/system/product/priv-app/3c_ota
-/system/system_ext/etc/nondisable
-/system/system_ext/priv-app/3c_ota
+- /system/etc/nondisable
+- /system/priv-app/3c_ota
+- /system/product/etc/nondisable
+- /system/product/priv-app/3c_ota
+- /system/system_ext/etc/nondisable
+- /system/system_ext/priv-app/3c_ota
 
 ---
 
@@ -60,8 +60,7 @@ The system paths remain present, preventing recovery repairs or integrity checks
 ## 🔍 Verification
 
 After reboot:
+Directory should exist and be empty.
 
 ```sh
 ls /system/system_ext/priv-app/3c_ota
-
-Directory should exist and be empty.
