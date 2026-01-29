@@ -1,3 +1,6 @@
+![KernelSU](https://img.shields.io/badge/KernelSU-supported-brightgreen)
+
+
 # Motorola OTA Notification Blocker (KernelSU)
 
 A clean, systemless KernelSU module that permanently disables Motorola software update notifications by bind-mounting empty directories over OTA components.
