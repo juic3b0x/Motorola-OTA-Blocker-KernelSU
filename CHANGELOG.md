@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.0
+## v1.1
 - Initial release
 - Bind-mounted empty directories over Motorola OTA components
 - Zero runtime overhead
