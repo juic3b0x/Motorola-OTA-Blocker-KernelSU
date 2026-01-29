@@ -1,0 +1,29 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore editor/project files
+*.idea/
+*.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore build outputs
+*.zip
+*.apk
+*.o
+*.so
+
+# Ignore logs / temp
+*.log
+tmp/
+*.bak
+*.swp
+*.swo
+
+# Ignore OS-specific metadata
+ehthumbs.db
+desktop.ini
+
+# Ignore KernelSU cache / module builds
+*.cache

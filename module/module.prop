@@ -1,0 +1,6 @@
+id=moto.ota.blocker
+name=Motorola OTA Notification Blocker
+version=1.0
+versionCode=1
+author=juic3b0x
+description=Systemless KernelSU module that disables Motorola software update notifications by bind-mounting empty directories over OTA components. No services, no RAM usage.
